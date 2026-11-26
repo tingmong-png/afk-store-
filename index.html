@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b20">
+<title>AFK Store — Homepage</title>
+<style>
+:root{--bg:#090b20;--panel:#151735;--line:#37356f;--text:#f8f8ff;--muted:#b8bbd8;--purple:#873cff;--pink:#ed36cb;--blue:#168cff;--green:#19d49a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;width:100%;min-width:320px;overflow-x:hidden;color:var(--text);font:16px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 10% 5%,#142b68 0,transparent 34%),radial-gradient(ellipse at 95% 12%,#55105d 0,transparent 30%),var(--bg)}
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-inline:24px}
+header{position:sticky;top:0;z-index:10;background:rgba(10,10,31,.92);backdrop-filter:blur(16px);border-bottom:1px solid #ffffff20}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+a,.brand,.links a,.links a:link,.links a:visited{color:inherit;text-decoration:none}.brand{font-weight:950;font-size:25px;letter-spacing:-1px;white-space:nowrap;color:#f8f8ff!important;text-decoration:none!important}.brand-mark{color:#d75aff}
+.links{display:flex;align-items:center;gap:25px;color:#e0e0f4;font-weight:700;font-size:14px}.links a,.links a:link,.links a:visited{color:#e0e0f4!important;text-decoration:none!important;transition:color .2s ease}.links a:hover,.links a:focus{color:#df8cff!important;text-decoration:none!important}
+.status{border:1px solid #25d79a77;background:#0d3a3470;padding:8px 13px;border-radius:30px;color:#7df0c3;font-size:12px;font-weight:850;white-space:nowrap}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:64px 0 58px;min-height:450px}
+.hero-copy{min-width:0}
+.search-card{width:100%;align-self:center}
+.hero-art{margin-top:24px;min-height:210px;max-width:460px}
+.avatar-card{height:205px;width:245px}
+.avatar{font-size:112px}
+.hero-copy{position:relative;z-index:1}.eyebrow{display:inline-flex;padding:7px 13px;border-radius:30px;background:#6425a866;border:1px solid #b15cff66;color:#e8d3ff;font-weight:850;font-size:12px;letter-spacing:.7px}
+h1{font-size:clamp(48px,6vw,76px);line-height:.98;margin:20px 0 16px;letter-spacing:-2.8px}.gradient{background:linear-gradient(90deg,#52d8ff,#a36bff,#ff58d1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);max-width:520px;font-size:18px;margin:0}.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.chip{border:1px solid #ffffff25;background:#ffffff0b;padding:9px 13px;border-radius:30px;font-size:13px;color:#e1e2f6}
+.hero-art{min-height:330px;position:relative;display:grid;place-items:center;isolation:isolate}.orb{position:absolute;width:290px;height:290px;border-radius:50%;background:radial-gradient(circle,#8a36ff88,#2b7bff25 58%,transparent 70%);filter:blur(5px);z-index:-1}.avatar-card{width:min(330px,80%);height:285px;border:1px solid #a95bff88;border-radius:34px;background:linear-gradient(145deg,#2d2872aa,#15152fdd);box-shadow:0 20px 70px #702cff44;display:grid;place-items:center;position:relative;transform:rotate(-3deg)}.avatar{font-size:142px;filter:drop-shadow(0 12px 20px #0009);transform:rotate(3deg)}.float-tag{position:absolute;border:1px solid #ffffff35;background:#141533e8;border-radius:15px;padding:10px 14px;font-weight:850;box-shadow:0 10px 25px #0005}.tag-one{top:25px;left:0;color:#78ddff}.tag-two{right:0;bottom:28px;color:#ff83dc}
+.search-card{background:linear-gradient(145deg,#24204f,#14152f);border:1px solid #a15bff99;border-radius:24px;padding:27px;box-shadow:0 20px 70px #6d21ff25}.search-card h2{margin:0 0 6px;font-size:25px}.sub{color:var(--muted);margin:0 0 20px}.field{width:100%;border:1px solid #7770bd;background:#0c1029;color:white;padding:16px;border-radius:13px;font-size:16px;outline:none}.field:focus{border-color:#d16aff;box-shadow:0 0 0 3px #b44dff22}.btn{border:0;border-radius:13px;padding:15px 20px;color:white;font-weight:850;font-size:16px;cursor:pointer;background:linear-gradient(90deg,#6037ff,#db28d1);width:100%;margin-top:12px}.btn:hover{filter:brightness(1.12)}.notice{font-size:12px;color:#b9bad5;margin-top:12px;min-height:18px}
+section{padding:32px 0 44px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}.section-head h2{margin:0;font-size:29px}.section-head p{margin:4px 0 0;color:var(--muted)}.soon{font-size:12px;color:#ffcf6b;border:1px solid #ffcf6b55;border-radius:30px;padding:6px 11px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.tile{padding:22px;border-radius:18px;background:linear-gradient(145deg,#171c43,#14132b);border:1px solid #ffffff20;min-height:145px}.tile:nth-child(3n+1){border-color:#238eff88}.tile:nth-child(3n+2){border-color:#b34aff88}.tile:nth-child(3n){border-color:#ed40b888}.tile .emoji{font-size:28px}.tile h3{margin:8px 0 3px}.tile p{margin:0;color:var(--muted);font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.step{background:#171a38;border:1px solid #ffffff20;border-radius:16px;padding:18px}.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#278dff,#a43dff);font-weight:900}.step h3{font-size:15px;margin:10px 0 4px}.step p{font-size:13px;color:var(--muted);margin:0}
+footer{border-top:1px solid #ffffff20;padding:28px 0 40px;color:var(--muted)}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{color:white}
+@media(max-width:850px){.links{gap:14px;font-size:13px}.hero{gap:20px}.hero-art{min-height:220px}.avatar-card{height:195px}.avatar{font-size:110px}}
+@media(max-width:700px){.wrap{padding-inline:18px}.nav{min-height:66px}.links{display:none}.brand{font-size:22px}.hero{grid-template-columns:1fr;padding:46px 0 30px;gap:18px}.hero-copy{max-width:650px}.hero-art{min-height:220px;margin-top:20px}.search-card{grid-row:auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.wrap{padding-inline:15px}.hero h1{font-size:47px}.lead{font-size:16px}.search-card{padding:20px}.grid{gap:10px}.tile{padding:15px;min-height:132px}.section-head h2{font-size:24px}.soon{font-size:10px}.steps{gap:9px}.step{padding:13px}}
+
+.package-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px}
+.package-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:7px;min-height:155px;padding:17px;border:1px solid #ffffff26;border-radius:17px;background:linear-gradient(145deg,#171c43,#14132b);color:var(--text);cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.package-card:nth-child(4n+1){border-color:#238eff88}.package-card:nth-child(4n+2){border-color:#b34aff88}.package-card:nth-child(4n+3){border-color:#ed40b888}.package-card:nth-child(4n){border-color:#17cf9188}
+.package-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #682bff22}
+.package-card.selected{outline:2px solid #d77aff;border-color:#f1a2ff;background:linear-gradient(145deg,#35216b,#20204b);box-shadow:0 0 0 4px #b34aff22}
+.package-icon{font-size:27px}.package-icon.robux-coin{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;font-size:15px;font-weight:950;letter-spacing:-.5px;color:#4a2b00;background:radial-gradient(circle at 32% 28%,#fff3a6 0 12%,#ffd34f 35%,#e69a13 76%,#a85c08 100%);border:2px solid #ffe28a;box-shadow:0 4px 14px #ffbd3150,inset 0 2px 3px #fff8}.package-card strong{font-size:16px}.package-card small{color:var(--muted);font-size:12px}.package-card b{font-size:12px;color:#ffcf6b;margin-top:auto}
+.package-note{margin:14px 0 0;padding:12px 15px;border-radius:12px;border:1px solid #ffffff20;background:#ffffff08;color:var(--muted);font-size:13px}
+@media(max-width:850px){.package-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:480px){.package-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.package-card{min-height:140px;padding:14px}}
+
+
+.account-result{margin-top:18px;padding:15px;border:1px solid #29d6a0;border-radius:16px;background:#0e302d66;display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:12px}
+.account-result[hidden]{display:none}
+.account-result img{width:72px;height:72px;border-radius:16px;background:#202743;object-fit:cover}
+.account-meta{display:flex;flex-direction:column;min-width:0;gap:3px}
+.account-meta strong{font-size:17px;overflow-wrap:anywhere}
+.account-meta span{color:#b8bbd8;font-size:14px;overflow-wrap:anywhere}
+.account-meta small{color:#8e96b9;font-size:11px}
+.verified-mark{color:#25d99b;font-size:22px;font-weight:950}
+.confirm-btn{grid-column:1/-1;margin-top:2px}
+@media(max-width:430px){.account-result{grid-template-columns:58px 1fr auto;padding:12px}.account-result img{width:58px;height:58px}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#"><span class="brand-mark">✦</span> AFK STORE</a><nav class="links"><a href="#home">Home</a><a href="#packages">Packages</a><a href="#payment-options">Payment</a><a href="#support">Support</a><a href="#how-to-buy">How to Buy</a></nav><span class="status">● Store status: Preview</span></div></header>
+<main class="wrap" id="home">
+<div class="hero">
+<div class="hero-copy"><span class="eyebrow">✦ COLORFUL GAMING STORE</span><h1>LEVEL UP<br><span class="gradient">YOUR GAME</span></h1><p class="lead">A colorful, easy-to-use storefront concept for account lookup, order information and customer support.</p><div class="chips"><span class="chip">⚡ Simple experience</span><span class="chip">🛡️ Clear order status</span><span class="chip">🎧 Friendly support</span></div><div class="hero-art" aria-hidden="true"><div class="orb"></div><div class="avatar-card"><div class="avatar">🧑🏻‍🎤</div></div><span class="float-tag tag-one">✦ AFK PLAYER</span><span class="float-tag tag-two">LEVEL UP! ⚡</span></div></div>
+<div class="search-card"><h2>Find Your Roblox Account</h2><p class="sub">Enter your Roblox username. You can type it with or without @.</p><form id="lookup"><input class="field" id="username" placeholder="Enter Roblox username (without @)" autocomplete="off" maxlength="20" required><button class="btn" id="searchBtn" type="submit">⌕ &nbsp; Search Account</button></form><p class="notice" id="result" aria-live="polite">Search uses public Roblox account information. Never enter your Roblox password.</p><div class="account-result" id="accountResult" hidden><img id="robloxAvatar" alt="Roblox avatar" src=""><div class="account-meta"><strong id="robloxDisplay"></strong><span id="robloxUsername"></span><small id="robloxId"></small></div><span class="verified-mark">✓</span><button class="btn confirm-btn" id="confirmAccount" type="button">Confirm This Account</button></div><p class="notice" id="confirmedNotice" hidden></p></div>
+</div>
+<section id="packages">
+  <div class="section-head">
+    <div><h2>Choose Your Robux Package</h2><p>Choose from 10 Robux package options. Final availability and pricing are set by the store admin.</p></div>
+    <span class="soon">PREVIEW ONLY</span>
+  </div>
+  <div class="package-grid" id="packageGrid">
+    <button class="package-card" type="button" data-id="1"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>50 Robux</strong><small>$0.50</small><b>Preview option</b></button>
+    <button class="package-card" type="button" data-id="2"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>100 Robux</strong><small>$1.00</small><b>Preview option</b></button>
+    <button class="package-card" type="button" data-id="3"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>200 Robux</strong><small>$2.00</small><b>Preview option</b></button>
+    <button class="package-card" type="button" data-id="4"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>300 Robux</strong><small>$3.00</small><b>Preview option</b></button>
+    <button class="package-card" type="button" data-id="5"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>400 Robux</strong><small>$4.00</small><b>Preview option</b></button>
+    <button class="package-card" type="button" data-id="6"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>500 Robux</strong><small>$5.00</small><b>Preview option</b></button>
+    <button class="package-card" type="button" data-id="7"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>Package 07</strong><small>Set by admin</small><b>Coming soon</b></button>
+    <button class="package-card" type="button" data-id="8"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>Package 08</strong><small>Set by admin</small><b>Coming soon</b></button>
+    <button class="package-card" type="button" data-id="9"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>Package 09</strong><small>Set by admin</small><b>Coming soon</b></button>
+    <button class="package-card" type="button" data-id="10"><span class="package-icon robux-coin" aria-label="Robux coin">R$</span><strong>Package 10</strong><small>Set by admin</small><b>Coming soon</b></button>
+  </div>
+  <p class="package-note" id="packageNote" aria-live="polite">Select an option to preview its selection state. Checkout is not enabled.</p>
+</section>
+<section id="payment-options">
+  <div class="section-head"><div><h2>Payment Options</h2><p>Payment methods will appear here after secure provider setup.</p></div><span class="soon">SETUP REQUIRED</span></div>
+  <div class="grid">
+    <div class="tile"><div class="emoji">🔵</div><h3>ABA Bank</h3><p>Available after an authorized payment integration is configured.</p></div>
+    <div class="tile"><div class="emoji">🔴</div><h3>KHQR / Bakong</h3><p>QR checkout will only be enabled after provider verification.</p></div>
+    <div class="tile"><div class="emoji">🛡️</div><h3>Payment Verification</h3><p>Orders will update only after a genuine payment confirmation.</p></div>
+  </div>
+</section>
+<section id="support">
+  <div class="section-head"><div><h2>Support</h2><p>Need help? Customer support contact details will be added here.</p></div></div>
+  <div class="tile"><div class="emoji">🎧</div><h3>AFK Store Support</h3><p>Support channel and operating hours are coming soon. Please check order status before contacting support.</p></div>
+</section>
+
+
+
+
+
+<section id="how-to-buy">
+  <div class="section-head"><div><h2>How to Buy</h2><p>Simple steps to review an order from start to finish.</p></div></div>
+  <div class="steps">
+    <div class="step"><span class="num">1</span><h3>Find your account</h3><p>Enter your public Roblox username. Never provide your password.</p></div>
+    <div class="step"><span class="num">2</span><h3>Choose a package</h3><p>Select an available Robux option and review its details.</p></div>
+    <div class="step"><span class="num">3</span><h3>Select payment</h3><p>Use an enabled, verified payment method at checkout.</p></div>
+    <div class="step"><span class="num">4</span><h3>Track your order</h3><p>Follow accurate payment and order status updates.</p></div>
+  </div>
+</section>
+</main>
+<footer id="support"><div class="wrap foot"><div><strong>✦ AFK STORE</strong><br><small>Colorful gaming store concept.</small></div><div><strong>Support</strong><br><small>Support channel to be added</small></div><div><small>© 2026 AFK Store · Homepage preview</small></div></div></footer>
+<script>
+let foundRobloxAccount = null;
+const lookupForm = document.getElementById('lookup');
+const lookupInput = document.getElementById('username');
+const lookupButton = document.getElementById('searchBtn');
+const lookupMessage = document.getElementById('result');
+const accountResult = document.getElementById('accountResult');
+
+lookupForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const username = lookupInput.value.trim().replace(/^@+/, '');
+  lookupInput.value = username;
+  if (!username) return;
+
+  foundRobloxAccount = null;
+  accountResult.hidden = true;
+  document.getElementById('confirmedNotice').hidden = true;
+  lookupButton.disabled = true;
+  lookupButton.textContent = 'Searching Roblox...';
+  lookupMessage.textContent = 'Looking up this public Roblox username. Please wait.';
+
+  try {
+    const response = await fetch('/.netlify/functions/roblox-lookup?username=' + encodeURIComponent(username));
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error || 'Roblox lookup failed.');
+    }
+
+    foundRobloxAccount = data;
+    document.getElementById('robloxAvatar').src = data.avatarUrl || '';
+    document.getElementById('robloxDisplay').textContent = data.displayName || data.username;
+    document.getElementById('robloxUsername').textContent = '@' + data.username;
+    document.getElementById('robloxId').textContent = 'Roblox User ID: ' + data.id;
+    accountResult.hidden = false;
+    lookupMessage.textContent = 'Account found. Check the avatar and username carefully before confirming.';
+  } catch (error) {
+    lookupMessage.textContent = error.message || 'Could not complete Roblox lookup. Please try again.';
+  } finally {
+    lookupButton.disabled = false;
+    lookupButton.textContent = '⌕  Search Account';
+  }
+});
+
+document.getElementById('confirmAccount').addEventListener('click', () => {
+  if (!foundRobloxAccount) return;
+  const notice = document.getElementById('confirmedNotice');
+  notice.hidden = false;
+  notice.textContent = 'Account confirmed for this preview: @' + foundRobloxAccount.username + ' (ID ' + foundRobloxAccount.id + '). You can now choose a package below.';
+  notice.scrollIntoView({behavior:'smooth', block:'nearest'});
+  document.getElementById('packages').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+document.querySelectorAll('.package-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    document.querySelectorAll('.package-card').forEach(item=>item.classList.remove('selected'));
+    card.classList.add('selected');
+    document.getElementById('packageNote').textContent='You selected Option '+card.dataset.id+'. This is a visual preview only. Product availability, pricing and any fulfillment must be verified and use Roblox-authorized methods.';
+  });
+});
+
+</script>
+</body>
+</html>
